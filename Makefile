@@ -1,6 +1,6 @@
 CC= gcc
 
-all: build
+all: clean build
 
 build:
 	@mkdir build
