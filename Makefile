@@ -3,7 +3,8 @@ CC= gcc
 all: build
 
 build:
-	mkdir build
-	${CC} -o /build/encode main.c
+	@mkdir build
+	@${CC} main.c -o build/encode
 
 clean:
+	@rm -rf build
