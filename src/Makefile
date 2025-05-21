@@ -4,8 +4,6 @@ BUILD_DIR = ../build/
 INC_DIR = ../includes
 OBJ_DIR = objs/
 CFLAGS = -Wall -I$(INC_DIR)
-LFLAGS = 
-DEPS = main.h
 OBJS = ${OBJ_DIR}util.o ${OBJ_DIR}encode.o
 
 
