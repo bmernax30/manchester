@@ -1,7 +1,9 @@
 #!/bin/bash
 
+
 if [ "$1" == "all" ]; then
     echo "Build encode program."
+    cd src
     make all
 fi
 if [ "$1" == "run" ]; then
@@ -11,6 +13,7 @@ if [ "$1" == "run" ]; then
 fi
 if [ "$1" == "clean" ]; then
     echo "Clean program."
+    cd src
     make clean
 fi
 
