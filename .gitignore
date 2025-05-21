@@ -1,5 +1,6 @@
 # Additions
 docs/
+.vscode/
 
 # Prerequisites
 *.d

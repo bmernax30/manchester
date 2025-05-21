@@ -9,7 +9,7 @@ fi
 if [ "$1" == "run" ]; then
     echo "Run encode program."
     cd build
-    ./encode $2
+    ./manchester $2 $3
 fi
 if [ "$1" == "clean" ]; then
     echo "Clean program."

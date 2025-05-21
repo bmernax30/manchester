@@ -1,5 +1,7 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
 #include "util.h"
-#include "main.h"
 
 /*Function: asciitobinary
 * Take an ascii character and return
@@ -10,10 +12,27 @@ int8_t asciitobinary(uint8_t input_ch, uint8_t *output)
 {
     uint8_t tmp_ch;
 
+    printf("Value[%c] = %x\n",input_ch,input_ch);
     for(uint8_t i = 0; i < BITS_PER_CHAR; i++)
     {
-        tmp_ch = (input_ch & (BIT_MASK << i));
-        output[i] = tmp_ch >> i;
+        tmp_ch = (input_ch & (BIT_MASK >> i));
+        output[i] = tmp_ch >> (BITS_PER_CHAR-i-1);
+    }
+}
+
+/*Function: binarytoascii
+* Convert binary string to 8 byte value.
+*/
+
+int8_t binarytoascii(uint8_t *input_binary, uint8_t output_ch);
+{
+    uint8_t tmp_ch;
+
+    printf("Value[%c] = %x\n",input_ch,input_ch);
+    for(uint8_t i = 0; i < BITS_PER_CHAR; i++)
+    {
+        tmp_ch = (input_ch & (BIT_MASK >> i));
+        output[i] = tmp_ch >> (BITS_PER_CHAR-i-1);
     }
 }
 
