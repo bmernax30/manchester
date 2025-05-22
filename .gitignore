@@ -1,7 +1,5 @@
 # Additions
-docs/
 .vscode/
-build/
 
 # Prerequisites
 *.d

@@ -9,7 +9,22 @@ fi
 if [ "$1" == "run" ]; then
     echo "Run encode program."
     cd build
-    ./manchester $2 $3
+    ./manchester $2 $3 $4
+fi
+if [ "$1" == "ex1" ]; then
+    echo "Run encode program."
+    cd build
+    echo -n a | ./manchester | hexdump -C
+fi
+if [ "$1" == "ex2" ]; then
+    echo "Run encode program."
+    cd build
+    echo 'hello' | ./manchester | hexdump -C
+fi
+if [ "$1" == "ex3" ]; then
+    echo "Run encode program."
+    cd build
+    echo -n -e '\xff' | ./manchester | hexdump -C
 fi
 if [ "$1" == "clean" ]; then
     echo "Clean program."

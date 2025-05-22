@@ -13,8 +13,9 @@
 * Manchester
 * 0 = {0,1}
 * 1 = {1,0}
+* 0 = OREGON->{1,0}->MANCHESTER->{1,0,0,1}
+* 1 = OREGON->{1,0}->MANCHESTER->{0,1,1,0}
 */
-
 void encode_Byte(uint8_t *input, uint8_t *output, uint8_t encode_type)
 {
     uint8_t bit_mask = MSB_MASK;
@@ -25,8 +26,7 @@ void encode_Byte(uint8_t *input, uint8_t *output, uint8_t encode_type)
     {
         if(encode_type == COMBINE)
         {
-            //0->OREGON->{1,0}->MANCHESTER->{1,0,0,1}
-            //1->OREGON->{1,0}->MANCHESTER->{0,1,1,0}
+
             tmpByte = OM_OUTPUT_0_MASK;
             
             //Invert 0->1 Mask

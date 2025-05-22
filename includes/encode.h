@@ -1,6 +1,7 @@
 #ifndef __ENCODE_H_
 #define __ENCODE_H_
 
+//Types of Encryption- Combine = Oregon then Manchester
 #define MANCHESTER 0
 #define OREGON 1
 #define COMBINE 2
