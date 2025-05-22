@@ -6,7 +6,7 @@ static uint8_t outBuf[MAX_OUT_BUFFER_SIZE];
 int main (int argc, char *argv[])
 {
     int ret = 0;
-    // No arguements, read from standard out.
+
     if(argc < 2)
     {
         StandardIn();
@@ -16,6 +16,8 @@ int main (int argc, char *argv[])
         ret = ProcessArgs(argc,argv);
     }
 
+    //Added for certain modes to make it more readable
+    //Ignore 0x0A value in hex dump
     printf("\n");
     return ret;
 }
@@ -95,16 +97,13 @@ void Mode_PrintSelect(uint16_t len, uint8_t *input_string, uint8_t print_type)
     uint16_t i;
     uint8_t tmpBuf[BITS_PER_CHAR];
 
-    //Convert Input to Binary
+    sprintf((char *)inBuf,"%s",input_string);
+
     for(i = 0; i < len; i++)
     {
-        //Convert Character to Ascii Value
         ascii_value = (uint8_t) inBuf[i];
-        //Convert Ascii Value to Binary Buffer
         util_AsciitoBinary(ascii_value,tmpBuf);
-        //Encode Binary Buffer with Oregon and Store in Output Buffer
         encode_Byte(tmpBuf,outBuf,COMBINE);
-        //Print Output Buffer
         util_WriteOut(outBuf,DOUBLE_LEVEL_ENCODING,print_type);
     }
 }
@@ -133,7 +132,7 @@ int Mode_File(uint8_t * file_name, uint8_t print_type)
         printf("Error2 = %s\n",(char*)file_name);
         return -1;
     }
-    //Read File
+
     while(1)
     {
         ch = fgetc(fin);
@@ -146,7 +145,7 @@ int Mode_File(uint8_t * file_name, uint8_t print_type)
         encode_Byte(tmpBuf,outBuf,COMBINE);
         util_WriteOutFile(fout,outBuf,DOUBLE_LEVEL_ENCODING,print_type);
     }
-    //Output File
+
     fclose(fin);
     fclose(fout);
 }
